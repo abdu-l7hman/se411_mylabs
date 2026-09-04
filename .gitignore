@@ -1,0 +1,15 @@
+# Maven build output
+target/
+**/target/
+
+# IDE files - Eclipse
+.classpath
+.project
+.settings/
+
+# IDE files - VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
