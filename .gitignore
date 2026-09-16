@@ -14,3 +14,7 @@ target/
 .DS_Store
 Thumbs.db
 /.metadata/
+
+# Runtime log output
+logs/
+**/logs/

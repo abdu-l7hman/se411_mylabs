@@ -1,41 +1,65 @@
 package edu.spu.se411.lab06_logging.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import edu.spu.se411.lab06_logging.exceptions.InsufficientFundsException;
 
 public class WalletAccount {
 
-	private double balance;
+    // Step 5: Logger for this class
+    private static final Logger logger = LoggerFactory.getLogger(WalletAccount.class);
+
+    private double balance;
 
     public WalletAccount(double balance) {
         setBalance(balance);
+        // Step 5: wallet account created → debug
+        logger.debug("WalletAccount created with initial balance: {}", balance);
     }
 
+    /**
+     * Withdraws the given amount from the account.
+     *
+     * @throws InsufficientFundsException if amount exceeds balance
+     * @throws IllegalArgumentException   if amount is negative
+     */
     public void withdraw(double amount) throws InsufficientFundsException {
-        if(amount < 0) {
-			throw new IllegalArgumentException("Cannot withdraw negative number: " + amount);
-		} else if (amount > balance) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Cannot withdraw negative number: " + amount);
+        } else if (amount > balance) {
+            // Step 5: throw → error level logged by caller; exception creation logged in exception constructor
             throw new InsufficientFundsException("Insufficient funds. Your balance is " + balance);
         } else {
             balance -= amount;
-            System.out.println("Withdrawal successful. Remaining balance: " + balance);
+            // Step 5: withdraw → debug
+            logger.debug("Withdrawal of {} successful. Remaining balance: {}", amount, balance);
         }
     }
-    
-    public void deposit(double amount) throws IllegalArgumentException {
+
+    /**
+     * Deposits the given amount into the account.
+     *
+     * @throws IllegalArgumentException if amount is negative
+     */
+    public void deposit(double amount) {
         if (amount < 0) {
             throw new IllegalArgumentException("Cannot deposit negative number: " + amount);
         } else {
             balance += amount;
-            System.out.println("Deposit successful. New balance: " + balance);
+            // Step 5: deposit → debug
+            logger.debug("Deposit of {} successful. New balance: {}", amount, balance);
         }
     }
 
     public void setBalance(double balance) {
-    	if (balance < 0) {
-			throw new IllegalArgumentException("Balance cannot be negative: " + balance);
-		}
-    	
-		this.balance = balance;
-	}
-	
+        if (balance < 0) {
+            throw new IllegalArgumentException("Balance cannot be negative: " + balance);
+        }
+        this.balance = balance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
 }
