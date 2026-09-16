@@ -1,16 +1,18 @@
 package edu.spu.se411.lab06_logging.exceptions;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+/**
+ * Thrown when a withdrawal amount exceeds the available wallet balance.
+ *
+ * AI review note: Logging is NOT done here in the constructor — the exception
+ * itself has no context about who is throwing it or why. The caller (WalletAccount)
+ * logs at WARN level at the throw site, which gives richer context.
+ */
 public class InsufficientFundsException extends Exception {
-
-    // Step 5: Logger for this exception class
-    private static final Logger logger = LoggerFactory.getLogger(InsufficientFundsException.class);
 
     public InsufficientFundsException(String message) {
         super(message);
-        // Step 5: InsufficientFundsException object created → warn
-        logger.warn("InsufficientFundsException created: {}", message);
+        // AI recommendation #1: Do NOT log in the exception constructor.
+        // Logging belongs at the throw site (WalletAccount.withdraw) where
+        // context (account state, amount) is available.
     }
 }

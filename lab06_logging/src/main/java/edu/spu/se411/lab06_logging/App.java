@@ -8,8 +8,8 @@ import edu.spu.se411.lab06_logging.model.WalletAccount;
 
 public class App {
 
-    // Step 2a: static Logger instance
-    static Logger logger = LoggerFactory.getLogger(App.class);
+    // Step 2a: static Logger instance (AI fix: private static final)
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
 
