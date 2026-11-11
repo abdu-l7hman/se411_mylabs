@@ -18,4 +18,4 @@ Run: `clean spring-boot:run` (or `mvnw spring-boot:run`), then open http://local
 **Step 14 – which status code do you get for a negative id?**
 **400 Bad Request.** `spring-boot-starter-validation` adds Jakarta Bean Validation; the `@Positive` constraint on the `id` path variable rejects the request before it reaches the service, and Spring answers with 400 and a problem-details body explaining that the id must be positive.
 
-Note: the project uses Spring Boot 4.0.9 (same version as lab 14) instead of 4.1.2.
+Built with Spring Boot 4.1.2, as the lab asks.
