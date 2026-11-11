@@ -1,0 +1,10 @@
+insert into product(name, description, price) values ('3d printer', 'A beginner friendly 3d printer', 1840.25);
+insert into product(name, description, price) values ('3d printer2', 'A beginner friendly 3d printer', 1790.25);
+insert into product(name, description, price) values ('3d printer3', 'A beginner friendly 3d printer', 1450.25);
+insert into product(name, description, price) values ('3d printer4', 'A beginner friendly 3d printer', 1210.25);
+insert into product(name, description, price) values ('3d printer5', 'A beginner friendly 3d printer', 1140.25);
+insert into product(name, description, price) values ('PC 01', 'A portable computer', 1840.25);
+insert into product(name, description, price) values ('PC 02', 'A portable computer', 1740.25);
+insert into product(name, description, price) values ('PC 03', 'A portable computer', 1560.25);
+insert into product(name, description, price) values ('PC 04', 'A portable computer', 1780.25);
+insert into product(name, description, price) values ('PC 05', 'A portable computer', 1210.25);
